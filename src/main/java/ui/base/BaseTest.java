@@ -3,6 +3,9 @@ package ui.base;
 import ui.drivers.DriverFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+
+@Listeners(core.listeners.TestListener.class)
 
 public class BaseTest {
 	
