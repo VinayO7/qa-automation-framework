@@ -16,7 +16,7 @@ public class ScreenshotUtil {
 	public static String captureScreenshot(WebDriver driver, String testName) {
 		String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
 		
-		new File("screenshots").mkdirs();
+		new File("test-output/screenshots").mkdirs();
 		
 		String filePath = "screenshots/" + testName + "_" + timeStamp + ".png";
 		

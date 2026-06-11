@@ -1,0 +1,143 @@
+Folder PATH listing
+Volume serial number is 000000D8 F257:7EF0
+C:.
+¦   .classpath
+¦   .gitignore
+¦   .project
+¦   pom.xml
+¦   README.md
+¦   structure.txt
+¦   
++---.settings
+¦       org.eclipse.jdt.core.prefs
+¦       org.eclipse.m2e.core.prefs
+¦       
++---screenshots
+¦       login_20260611_144830.png
+¦       
++---src
+¦   +---main
+¦   ¦   +---java
+¦   ¦   ¦   +---core
+¦   ¦   ¦   ¦   +---config
+¦   ¦   ¦   ¦   ¦       ConfigReader.java
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---listeners
+¦   ¦   ¦   ¦   ¦       TestListener.java
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---reports
+¦   ¦   ¦   ¦   ¦       ExtentManager.java
+¦   ¦   ¦   ¦   ¦       ExtentTestManager.java
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---utils
+¦   ¦   ¦   ¦           ScreenshotUtil.java
+¦   ¦   ¦   ¦           WaitUtil.java
+¦   ¦   ¦   ¦           
+¦   ¦   ¦   +---ui
+¦   ¦   ¦       +---base
+¦   ¦   ¦       ¦       AuthenticatedBaseTest.java
+¦   ¦   ¦       ¦       BaseTest.java
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---drivers
+¦   ¦   ¦       ¦       DriverFactory.java
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pages
+¦   ¦   ¦               AddEmployeePage.java
+¦   ¦   ¦               BasePage.java
+¦   ¦   ¦               DashboardPage.java
+¦   ¦   ¦               EmployeeDetailsPage.java
+¦   ¦   ¦               LoginPage.java
+¦   ¦   ¦               PIMPage.java
+¦   ¦   ¦               
+¦   ¦   +---resources
+¦   ¦           config.properties
+¦   ¦           
+¦   +---test
+¦       +---java
+¦       ¦   +---ui
+¦       ¦       +---tests
+¦       ¦               AddEmployeeTest.java
+¦       ¦               EmployeePersonalDetailsTest.java
+¦       ¦               LaunchTest.java
+¦       ¦               
+¦       +---resources
++---target
+¦   +---classes
+¦   ¦   ¦   config.properties
+¦   ¦   ¦   
+¦   ¦   +---core
+¦   ¦   ¦   +---config
+¦   ¦   ¦   ¦       ConfigReader.class
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---listeners
+¦   ¦   ¦   ¦       TestListener.class
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---reports
+¦   ¦   ¦   ¦       ExtentManager.class
+¦   ¦   ¦   ¦       ExtentTestManager.class
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---utils
+¦   ¦   ¦           ScreenshotUtil.class
+¦   ¦   ¦           WaitUtil.class
+¦   ¦   ¦           
+¦   ¦   +---META-INF
+¦   ¦   ¦   ¦   MANIFEST.MF
+¦   ¦   ¦   ¦   
+¦   ¦   ¦   +---maven
+¦   ¦   ¦       +---com.vinay.framework
+¦   ¦   ¦           +---HybridAutomationProject
+¦   ¦   ¦                   pom.properties
+¦   ¦   ¦                   pom.xml
+¦   ¦   ¦                   
+¦   ¦   +---ui
+¦   ¦       +---base
+¦   ¦       ¦       AuthenticatedBaseTest.class
+¦   ¦       ¦       BaseTest.class
+¦   ¦       ¦       
+¦   ¦       +---drivers
+¦   ¦       ¦       DriverFactory.class
+¦   ¦       ¦       
+¦   ¦       +---pages
+¦   ¦               AddEmployeePage.class
+¦   ¦               BasePage.class
+¦   ¦               DashboardPage.class
+¦   ¦               EmployeeDetailsPage.class
+¦   ¦               LoginPage.class
+¦   ¦               PIMPage.class
+¦   ¦               
+¦   +---test-classes
+¦       +---ui
+¦           +---tests
+¦                   AddEmployeeTest.class
+¦                   EmployeePersonalDetailsTest.class
+¦                   LaunchTest.class
+¦                   
++---test-output
+    ¦   bullet_point.png
+    ¦   collapseall.gif
+    ¦   emailable-report.html
+    ¦   ExtentReport.html
+    ¦   failed.png
+    ¦   index.html
+    ¦   jquery-3.6.0.min.js
+    ¦   navigator-bullet.png
+    ¦   passed.png
+    ¦   skipped.png
+    ¦   testng-failed.xml
+    ¦   testng-reports.css
+    ¦   testng-reports.js
+    ¦   testng-reports1.css
+    ¦   testng-reports2.js
+    ¦   testng-results.xml
+    ¦   
+    +---Default suite
+    ¦       Default test.html
+    ¦       Default test.xml
+    ¦       testng-failed.xml
+    ¦       
+    +---junitreports
+            TEST-ui.tests.AddEmployeeTest.xml
+            TEST-ui.tests.EmployeePersonalDetails.xml
+            TEST-ui.tests.EmployeePersonalDetailsTest.xml
+            TEST-ui.tests.LaunchTest.xml
+            

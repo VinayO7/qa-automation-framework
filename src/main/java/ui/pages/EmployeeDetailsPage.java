@@ -14,17 +14,17 @@ public class EmployeeDetailsPage extends BasePage{
 	}
 	
 	private By driverLicenseNumber = By.xpath("//label[contains(.,'Driver')]/ancestor::div[contains(@class,'oxd-input-group')]//input[contains(@class,'oxd-input')]");
-	private By licenseExpiryDate = By.xpath("(//input[@placeholder='yyyy-dd-mm'])[1]");
+	private By licenseExpiryDate = By.xpath("//label[contains(normalize-space(),'License Expiry Date')]/ancestor::div[contains(@class,'oxd-input-group')]//input");
 	private By nationality = By.xpath("//label[text()='Nationality']/ancestor::div[contains(@class,'oxd-input-group')]//div[@class='oxd-select-text-input']");
 	private By maritalStatus = By.xpath("//label[text()='Marital Status']/ancestor::div[contains(@class,'oxd-input-group')]//div[@class='oxd-select-text-input']");
-	private By dateOfBirth = By.xpath("(//input[@placeholder='yyyy-dd-mm'])[2]");
+	private By dateOfBirth = By.xpath("//label[contains(normalize-space(),'Date of Birth')]/ancestor::div[contains(@class,'oxd-input-group')]//input");
 	private By genderMale = By.xpath("//label[normalize-space()='Male']/span");
 	private By saveButton = By.xpath("(//button[@type='submit' and normalize-space()='Save'])[1]");
 	private By loader = By.cssSelector(".oxd-form-loader");
+	private By successToast = By.xpath("//p[contains(@class,'toast-title') and text()='Success']");
 	
 	public EmployeeDetailsPage updatePersonalDetails( String licenseNumber, String licenseExpDate, String dob, String nationality1, String maritalStatus1) {
 		WaitUtil.waitForInvisibility(driver, loader);
-//		type(nickName,name);
 		clearText(driverLicenseNumber);
 		System.out.println("1.license text cleared.");
 		WebElement licence = driver.findElement(driverLicenseNumber);
@@ -36,7 +36,7 @@ public class EmployeeDetailsPage extends BasePage{
 		    "Value = " + licence.getAttribute("value"));
 		
 		System.out.println("2.licence number added!");
-		type(licenseExpiryDate, licenseExpDate);
+		typeDate(licenseExpiryDate, licenseExpDate);
 		System.out.println("3.license date added.");
 		WaitUtil.waitForVisibility(driver, nationality);
 		
@@ -56,7 +56,8 @@ public class EmployeeDetailsPage extends BasePage{
 		WaitUtil.waitForVisibility(driver, maritalStatusOption);
 		driver.findElement(maritalStatusOption).click();
 		System.out.println("7. marital status added.");
-		clearText(dateOfBirth).type(dateOfBirth, dob);
+		clearText(dateOfBirth);
+		typeDate(dateOfBirth, dob);
 		System.out.println("8.dob added.");
 		click(genderMale);
 		System.out.println("9.gender added.");
@@ -64,5 +65,10 @@ public class EmployeeDetailsPage extends BasePage{
 		System.out.println("10.personal details saved.");
 		WaitUtil.waitForInvisibility(driver, loader);
 		return this;
+	}
+	
+	public boolean isSuccessToastDisplayed() {
+
+	    return isDisplayed(successToast);
 	}
 }

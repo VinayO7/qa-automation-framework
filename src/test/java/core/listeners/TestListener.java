@@ -3,7 +3,6 @@ package core.listeners;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.internal.annotations.ITest;
 
 import com.aventstack.extentreports.Status;
 
