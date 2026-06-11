@@ -19,13 +19,13 @@ public class AddEmployeePage extends BasePage{
 	private By successMsg = By.xpath("//p[text()='Success']");
 	
 	public void enterFullName(String fName,String sName,String lName) {
-		WaitUtil.waitForVisibility(driver, firstName, 10);
+		WaitUtil.waitForVisibility(driver, firstName);
 		type(firstName, fName);
 		type(middleName, sName);
 		type(lastName, lName);
 	}
 	public void enterEmployeeId(String id) {
-		WaitUtil.waitForVisibility(driver, empId, 10);
+		WaitUtil.waitForVisibility(driver, empId);
 		clearText(empId).type(empId, id);
 	}
 	
@@ -33,15 +33,16 @@ public class AddEmployeePage extends BasePage{
 		return isDisplayed(successMsg);
 	}
 	
-	public void clickSave() {
-		click(saveButton);
-	}
+	public EmployeeDetailsPage addEmployee(String fName, String sName, String lName, String employeeId) {
+        enterFullName(fName, sName, lName);
+        enterEmployeeId(employeeId);
+        return clickSave();
+    }
 	
-	public EmployeeDetailsPage addEmployee(String fName, String sName, String lName, String empId) {
-		enterFullName(fName, sName, lName);
-		enterEmployeeId(empId);
-		clickSave();
-		return new EmployeeDetailsPage(driver);
+	public EmployeeDetailsPage clickSave() {
+	    WaitUtil.waitForInvisibility(driver, By.cssSelector(".oxd-form-loader"), 30);
+	    click(saveButton);
+	    WaitUtil.waitForInvisibility(driver, By.cssSelector(".oxd-form-loader"), 30);
+	    return new EmployeeDetailsPage(driver);
 	}
-	
 }

@@ -25,4 +25,9 @@ public final class ConfigReader {
 	public static String getProperty(String key) {
 		return properties.getProperty(key);
 	}
+	
+	public static int getTimeout() {
+	    return Integer.parseInt(
+	            properties.getProperty("timeout"));
+	}
 }

@@ -18,20 +18,22 @@ public class BasePage {
 	}
 	
 	protected BasePage type(By locator, Object text) {
-		WaitUtil.waitForVisibility(driver, locator, 10);
-		find(locator).sendKeys(String.valueOf(text));
+		WaitUtil.waitForVisibility(driver, locator);
+		WebElement element = find(locator);
+		element.clear();
+		element.sendKeys(String.valueOf(text));
 		return this;
 	}
 	
 	protected BasePage click(By locator) {
-		WaitUtil.waitForVisibility(driver, locator, 10);
+		WaitUtil.waitForClickability(driver, locator);
 		find(locator).click();
 		return this;
 	}
 	
 	protected boolean isDisplayed(By locator) {
 		try {
-			WaitUtil.waitForVisibility(driver, locator, 10);
+			WaitUtil.waitForVisibility(driver, locator);
 			return find(locator).isDisplayed();
 		}
 		catch(Exception e) {
@@ -40,8 +42,17 @@ public class BasePage {
 	}
 	
 	protected BasePage clearText(By locator) {
-		WaitUtil.waitForVisibility(driver, locator, 10);
+		WaitUtil.waitForVisibility(driver, locator);
 		find(locator).clear();
 		return this;
+	}
+	
+	protected String getText(By locator) {
+	    WaitUtil.waitForVisibility(driver, locator);
+	    return find(locator).getText();
+	}
+	
+	protected void waitForLoader() {
+	    WaitUtil.waitForInvisibility(driver, By.cssSelector(".oxd-form-loader"));
 	}
 }

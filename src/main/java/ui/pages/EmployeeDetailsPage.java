@@ -2,6 +2,7 @@ package ui.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import core.utils.WaitUtil;
 
@@ -9,34 +10,59 @@ public class EmployeeDetailsPage extends BasePage{
 	
 	public EmployeeDetailsPage(WebDriver driver) {
 		super(driver);
-		WaitUtil.waitForInvisibility(driver,By.cssSelector(".oxd-form-loader"),10);
+		WaitUtil.waitForInvisibility(driver,loader);
 	}
 	
-//	private By nickName = By.xpath("//label[text()='Nickname']/ancestor::div[contains(@class,'oxd-input-group')]//input");
-	private By driverLicenseNumber = By.xpath("//label[contains(text(),\"Driver's License Number\")]/ancestor::div[contains(@class,'oxd-input-group')]//input");
-	private By licenseExpiryDate = By.xpath("//input[contains(@placeholder, 'yyyy-dd-mm')]");
+	private By driverLicenseNumber = By.xpath("//label[contains(.,'Driver')]/ancestor::div[contains(@class,'oxd-input-group')]//input[contains(@class,'oxd-input')]");
+	private By licenseExpiryDate = By.xpath("(//input[@placeholder='yyyy-dd-mm'])[1]");
 	private By nationality = By.xpath("//label[text()='Nationality']/ancestor::div[contains(@class,'oxd-input-group')]//div[@class='oxd-select-text-input']");
 	private By maritalStatus = By.xpath("//label[text()='Marital Status']/ancestor::div[contains(@class,'oxd-input-group')]//div[@class='oxd-select-text-input']");
-	private By dateOfBirth = By.xpath("(//input[contains(@placeholder, 'yyyy-dd-mm')])[2]");
-	private By genderMale = By.xpath("//input[contains(@value,'1')]");
-//	private By smokerCheckBox = By.xpath("(//input[contains(@type,'checkbox')])[1]");
+	private By dateOfBirth = By.xpath("(//input[@placeholder='yyyy-dd-mm'])[2]");
+	private By genderMale = By.xpath("//label[normalize-space()='Male']/span");
 	private By saveButton = By.xpath("(//button[@type='submit' and normalize-space()='Save'])[1]");
 	private By loader = By.cssSelector(".oxd-form-loader");
 	
-	public void updatePersonalDetails( String licenseNumber, String licenseExpDate, String dob, String nationality1, String maritalStatus1) {
-		WaitUtil.waitForInvisibility(driver, loader, 10);
+	public EmployeeDetailsPage updatePersonalDetails( String licenseNumber, String licenseExpDate, String dob, String nationality1, String maritalStatus1) {
+		WaitUtil.waitForInvisibility(driver, loader);
 //		type(nickName,name);
-		type(driverLicenseNumber,licenseNumber);
-		System.out.println("licence number added!");
+		clearText(driverLicenseNumber);
+		System.out.println("1.license text cleared.");
+		WebElement licence = driver.findElement(driverLicenseNumber);
+
+		licence.clear();
+		licence.sendKeys(licenseNumber);
+
+		System.out.println(
+		    "Value = " + licence.getAttribute("value"));
+		
+		System.out.println("2.licence number added!");
 		type(licenseExpiryDate, licenseExpDate);
+		System.out.println("3.license date added.");
+		WaitUtil.waitForVisibility(driver, nationality);
+		
+		
 		click(nationality);
-		WaitUtil.waitForVisibility(driver, nationality, 10);
-		driver.findElement(By.xpath("//*[normalize-space()='"+nationality1+"']")).click();
+		System.out.println("4. nationality clicked");
+		By nationalityOption = By.xpath("//*[normalize-space()='"+nationality1+"']");
+		WaitUtil.waitForVisibility(driver, nationalityOption);
+		driver.findElement(nationalityOption).click();
+		System.out.println("5.nationality added.");
+		
+		
+		WaitUtil.waitForVisibility(driver, maritalStatus);
 		click(maritalStatus);
-		WaitUtil.waitForVisibility(driver, maritalStatus, 10);
-		driver.findElement(By.xpath("//*[normalize-space()='"+maritalStatus1+"']")).click();
+		System.out.println("6.marital status clicked.");
+		By maritalStatusOption = By.xpath("//*[normalize-space()='"+maritalStatus1+"']");
+		WaitUtil.waitForVisibility(driver, maritalStatusOption);
+		driver.findElement(maritalStatusOption).click();
+		System.out.println("7. marital status added.");
 		clearText(dateOfBirth).type(dateOfBirth, dob);
+		System.out.println("8.dob added.");
 		click(genderMale);
+		System.out.println("9.gender added.");
 		click(saveButton);
+		System.out.println("10.personal details saved.");
+		WaitUtil.waitForInvisibility(driver, loader);
+		return this;
 	}
 }

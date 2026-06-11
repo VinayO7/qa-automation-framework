@@ -19,7 +19,7 @@ public class AuthenticatedBaseTest extends BaseTest{
 		
 		Assert.assertTrue(loginPage.isLoginpageDisplayed(),"Login Page is not Displayed!");
 		dashBoard = loginPage.login(ConfigReader.getProperty("username"), ConfigReader.getProperty("password"));
-
+		
 		Assert.assertTrue(dashBoard.isDashboardDisplayed(), "DashBoard is not Displayed");
 	}
 	

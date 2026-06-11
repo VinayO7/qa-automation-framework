@@ -16,7 +16,7 @@ public class DashboardPage extends BasePage{
 	}
 	
 	public boolean isDashboardDisplayed() {
-		WaitUtil.waitForVisibility(driver, dashBoardHeader, 10);
+		WaitUtil.waitForVisibility(driver, dashBoardHeader, 20);
 		return isDisplayed(dashBoardHeader);
 	}
 	
