@@ -1,19 +1,16 @@
 Folder PATH listing
-Volume serial number is 000000D8 F257:7EF0
+Volume serial number is 00000023 F257:7EF0
 C:.
 ¦   .classpath
 ¦   .gitignore
 ¦   .project
+¦   ArchitectureTreeStructure.txt
 ¦   pom.xml
 ¦   README.md
-¦   structure.txt
 ¦   
 +---.settings
 ¦       org.eclipse.jdt.core.prefs
 ¦       org.eclipse.m2e.core.prefs
-¦       
-+---screenshots
-¦       login_20260611_144830.png
 ¦       
 +---src
 ¦   +---main
@@ -22,22 +19,19 @@ C:.
 ¦   ¦   ¦   ¦   +---config
 ¦   ¦   ¦   ¦   ¦       ConfigReader.java
 ¦   ¦   ¦   ¦   ¦       
-¦   ¦   ¦   ¦   +---listeners
-¦   ¦   ¦   ¦   ¦       TestListener.java
+¦   ¦   ¦   ¦   +---models
+¦   ¦   ¦   ¦   ¦       Employee.java
 ¦   ¦   ¦   ¦   ¦       
 ¦   ¦   ¦   ¦   +---reports
 ¦   ¦   ¦   ¦   ¦       ExtentManager.java
 ¦   ¦   ¦   ¦   ¦       ExtentTestManager.java
 ¦   ¦   ¦   ¦   ¦       
 ¦   ¦   ¦   ¦   +---utils
+¦   ¦   ¦   ¦           JsonUtil.java
 ¦   ¦   ¦   ¦           ScreenshotUtil.java
 ¦   ¦   ¦   ¦           WaitUtil.java
 ¦   ¦   ¦   ¦           
 ¦   ¦   ¦   +---ui
-¦   ¦   ¦       +---base
-¦   ¦   ¦       ¦       AuthenticatedBaseTest.java
-¦   ¦   ¦       ¦       BaseTest.java
-¦   ¦   ¦       ¦       
 ¦   ¦   ¦       +---drivers
 ¦   ¦   ¦       ¦       DriverFactory.java
 ¦   ¦   ¦       ¦       
@@ -54,13 +48,24 @@ C:.
 ¦   ¦           
 ¦   +---test
 ¦       +---java
+¦       ¦   +---core
+¦       ¦   ¦   +---listeners
+¦       ¦   ¦           TestListener.java
+¦       ¦   ¦           
 ¦       ¦   +---ui
+¦       ¦       +---base
+¦       ¦       ¦       AuthenticatedBaseTest.java
+¦       ¦       ¦       BaseTest.java
+¦       ¦       ¦       
 ¦       ¦       +---tests
 ¦       ¦               AddEmployeeTest.java
 ¦       ¦               EmployeePersonalDetailsTest.java
 ¦       ¦               LaunchTest.java
 ¦       ¦               
 ¦       +---resources
+¦           +---testdata
+¦                   employee.json
+¦                   
 +---target
 ¦   +---classes
 ¦   ¦   ¦   config.properties
@@ -69,14 +74,15 @@ C:.
 ¦   ¦   ¦   +---config
 ¦   ¦   ¦   ¦       ConfigReader.class
 ¦   ¦   ¦   ¦       
-¦   ¦   ¦   +---listeners
-¦   ¦   ¦   ¦       TestListener.class
+¦   ¦   ¦   +---models
+¦   ¦   ¦   ¦       Employee.class
 ¦   ¦   ¦   ¦       
 ¦   ¦   ¦   +---reports
 ¦   ¦   ¦   ¦       ExtentManager.class
 ¦   ¦   ¦   ¦       ExtentTestManager.class
 ¦   ¦   ¦   ¦       
 ¦   ¦   ¦   +---utils
+¦   ¦   ¦           JsonUtil.class
 ¦   ¦   ¦           ScreenshotUtil.class
 ¦   ¦   ¦           WaitUtil.class
 ¦   ¦   ¦           
@@ -90,10 +96,6 @@ C:.
 ¦   ¦   ¦                   pom.xml
 ¦   ¦   ¦                   
 ¦   ¦   +---ui
-¦   ¦       +---base
-¦   ¦       ¦       AuthenticatedBaseTest.class
-¦   ¦       ¦       BaseTest.class
-¦   ¦       ¦       
 ¦   ¦       +---drivers
 ¦   ¦       ¦       DriverFactory.class
 ¦   ¦       ¦       
@@ -106,7 +108,18 @@ C:.
 ¦   ¦               PIMPage.class
 ¦   ¦               
 ¦   +---test-classes
+¦       +---core
+¦       ¦   +---listeners
+¦       ¦           TestListener.class
+¦       ¦           
+¦       +---testdata
+¦       ¦       employee.json
+¦       ¦       
 ¦       +---ui
+¦           +---base
+¦           ¦       AuthenticatedBaseTest.class
+¦           ¦       BaseTest.class
+¦           ¦       
 ¦           +---tests
 ¦                   AddEmployeeTest.class
 ¦                   EmployeePersonalDetailsTest.class
@@ -136,8 +149,9 @@ C:.
     ¦       testng-failed.xml
     ¦       
     +---junitreports
-            TEST-ui.tests.AddEmployeeTest.xml
-            TEST-ui.tests.EmployeePersonalDetails.xml
-            TEST-ui.tests.EmployeePersonalDetailsTest.xml
-            TEST-ui.tests.LaunchTest.xml
-            
+    ¦       TEST-ui.tests.AddEmployeeTest.xml
+    ¦       TEST-ui.tests.EmployeePersonalDetails.xml
+    ¦       TEST-ui.tests.EmployeePersonalDetailsTest.xml
+    ¦       TEST-ui.tests.LaunchTest.xml
+    ¦       
+    +---screenshots
